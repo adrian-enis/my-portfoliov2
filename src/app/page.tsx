@@ -1,65 +1,81 @@
-import Image from "next/image";
+import { getExperience } from "@/data/experience";
+import { getProjects } from "@/data/projects";
+import { getSkills } from "@/data/skills";
 
-export default function Home() {
+export default async function Home() {
+  const [experience, projects, skills] = await Promise.all([
+    getExperience(),
+    getProjects(),
+    getSkills(),
+  ]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="mx-auto max-w-screen-xl px-6 md:px-16 lg:px-24">
+      <div className="lg:flex lg:gap-4">
+
+        {/* LEFT — sticky */}
+        <aside className="lg:sticky lg:top-0 lg:h-screen lg:w-5/12 lg:flex lg:flex-col lg:justify-between py-20">
+          <div>
+            <p className="text-(--color-green) font-mono text-sm mb-3">Hola, mi nombre es</p>
+            <h1 className="text-4xl md:text-5xl font-semibold text-(--color-white) mb-3 leading-tight">
+              Adrian Enis
+            </h1>
+            <h2 className="text-lg text-(--color-slate-light) mb-5">
+              Full-stack Developer · AI-First
+            </h2>
+            <p className="text-(--color-slate) text-sm leading-relaxed max-w-xs">
+              Construyo aplicaciones web escalables con{" "}
+              <span className="text-(--color-slate-lighter)">React, Next.js y Node.js</span>,
+              con enfoque en arquitecturas{" "}
+              <span className="text-(--color-green)">AI-First</span>.
+            </p>
+          </div>
+
+          {/* Nav */}
+          <nav className="my-10 flex flex-col gap-1">
+            {["Sobre mí", "Experiencia", "Proyectos", "Skills", "Contacto"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="group flex items-center gap-4 py-2 w-fit"
+              > 
+                <span className="h-px w-6 bg-(--color-navy-lighter) transition-all duration-300 group-hover:w-12 group-hover:bg-(--color-slate-lighter)" />
+                <span className="text-xs font-medium uppercase tracking-widest text-(--color-slate) transition-colors duration-300 group-hover:text-(--color-slate-lighter)">
+                  {item}
+                </span>
+              </a>
+            ))}
+          </nav>
+          {/* Socials */}
+          <div className="flex gap-4">
+            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"
+              className="text-(--color-slate) hover:text-(--color-green) transition-colors duration-300">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/adrianenis" target="_blank" rel="noopener" aria-label="LinkedIn"
+              className="text-(--color-slate) hover:text-(--color-green) transition-colors duration-300">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="mailto:adrianenis2000@gmail.com" aria-label="Email"
+              className="text-(--color-slate) hover:text-(--color-green) transition-colors duration-300">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </a>
+          </div>
+        </aside>
+
+        {/* RIGHT — scrollable */}
+        <main className="lg:w-7/12 py-20 flex flex-col gap-24">
+          <p className="text-(--color-green)">✓ Layout listo — secciones van aquí</p>
+        </main>
+
+      </div>
     </div>
   );
 }
