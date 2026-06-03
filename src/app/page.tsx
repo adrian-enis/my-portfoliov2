@@ -3,6 +3,7 @@ import { getProjects } from "@/data/projects";
 import { getSkills } from "@/data/skills";
 import About from "@/sections/About";
 import Experience from "@/sections/Experience";
+import Projects from "@/sections/Projects";
 
 
 export default async function Home() {
@@ -78,6 +79,7 @@ export default async function Home() {
       <main className="flex-1 flex flex-col gap-20">
         <About id="sobre-mí" />
         <Experience id="experiencia" items={experience} />
+        <Projects id="proyectos" items={projects} />
       </main>
 
     </div>
