@@ -1,3 +1,4 @@
+import RevealWrapper from "@/components/common/RevealWrapper";
 import type { Project } from "@/data/projects";
 
 type Props = {
@@ -17,7 +18,9 @@ export default function Projects({ id, items }: Props) {
     return (
         <section id={id} className="mb-24 scroll-mt-24">
             <div className="flex flex-col gap-1">
-                {items.map((proj) => (
+                {items.map((proj, i) => (
+                     <RevealWrapper key={proj.title} delay={i * 100}>
+
                     <div
                         key={proj.title}
                         className="exp-card group grid gap-4 p-4 rounded-lg border border-transparent transition-all duration-300"
@@ -48,6 +51,7 @@ export default function Projects({ id, items }: Props) {
                             </div>
                         </div>
                     </div>
+                     </RevealWrapper>
                 ))}
             </div>
         </section>
