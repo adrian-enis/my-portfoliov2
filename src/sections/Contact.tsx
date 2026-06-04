@@ -2,7 +2,7 @@ type Props = { id?: string };
 
 export default function Contact({ id }: Props) {
   return (
-    <section id={id} className="mb-24 scroll-mt-24">
+    <section id={id} className=" scroll-mt-24">
       <p className="text-xs text-(--color-slate) leading-relaxed mb-6 max-w-md">
         Abierto a oportunidades remotas, freelance y colaboraciones. Si tienes un proyecto interesante, escríbeme.
       </p>
