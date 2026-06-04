@@ -112,3 +112,11 @@ main {
 .exp-card:hover h3 {
   color: #64ffda;
 }
+
+
+/* Animation frames */
+.reveal { opacity: 0; transform: translateY(20px); 
+  transition: opacity 0.5s cubic-bezier(0.645,0.045,0.355,1), 
+  transform 0.5s cubic-bezier(0.645,0.045,0.355,1);
+}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
