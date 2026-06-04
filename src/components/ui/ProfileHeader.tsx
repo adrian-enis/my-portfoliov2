@@ -1,0 +1,28 @@
+type Props = {
+  showBio?: boolean;
+  className?: string;
+};
+
+export default function ProfileHeader({ showBio = true, className = "" }: Props) {
+  return (
+    <div className={className}>
+      <p className="text-(--color-green) font-mono text-sm mb-4 leading-[1.75]">
+        Hola, mi nombre es
+      </p>
+      <h1 className="text-4xl sm:text-5xl font-semibold text-(--color-white) mb-4 leading-tight">
+        Adrian Enis
+      </h1>
+      <h2 className="text-lg sm:text-xl text-(--color-slate-light) mb-6 leading-[1.75]">
+        Full-stack Developer · AI-First
+      </h2>
+      {showBio && (
+        <p className="text-(--color-slate) text-sm sm:text-base leading-[1.75] max-w-md">
+          Construyo aplicaciones web escalables con{" "}
+          <span className="text-(--color-slate-lighter)">React, Next.js y Node.js</span>,
+          con enfoque en arquitecturas{" "}
+          <span className="text-(--color-green)">AI-First</span>.
+        </p>
+      )}
+    </div>
+  );
+}
