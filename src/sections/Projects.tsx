@@ -1,5 +1,13 @@
 import RevealWrapper from "@/components/common/RevealWrapper";
 import type { Project } from "@/data/projects";
+import {
+    cardBodyClass,
+    cardChipsClass,
+    cardClassProjects,
+    cardDescClass,
+    cardTitleClass,
+    listClass,
+} from "@/sections/cardLayout";
 
 type Props = {
     id?: string;
@@ -16,42 +24,34 @@ const chipColor = (chip: string) => {
 
 export default function Projects({ id, items }: Props) {
     return (
-        <section id={id} className="mb-24 scroll-mt-24">
-            <div className="flex flex-col gap-1">
+        <section id={id} className="scroll-mt-24">
+            <div className={listClass}>
                 {items.map((proj, i) => (
-                     <RevealWrapper key={proj.title} delay={i * 100}>
+                    <RevealWrapper key={proj.title} delay={i * 100}>
+                        <div className={cardClassProjects}>
+                            <div className="w-14 h-12 rounded border border-(--color-navy-lighter) bg-(--color-navy-light) flex items-center justify-center text-2xl shrink-0 transition-all duration-300 group-hover:border-teal-500/40">
+                                {proj.emoji}
+                            </div>
 
-                    <div
-                        key={proj.title}
-                        className="exp-card group grid gap-4 p-4 rounded-lg border border-transparent transition-all duration-300"
-                        style={{ gridTemplateColumns: "64px 1fr" }}
-                    >
-                        {/* Thumbnail */}
-                        <div className="w-14 h-12 rounded border border-(--color-navy-lighter) bg-(--color-navy-light) flex items-center justify-center text-2xl flex-shrink-0 transition-all duration-300 group-hover:border-teal-500/40">
-                            {proj.emoji}
-                        </div>
-
-                        <div>
-                            <h3 className="text-sm font-medium text-(--color-slate-lighter) mb-1 leading-snug flex items-center gap-1">
-                                {proj.title}
-                                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-xs">↗</span>
-                            </h3>
-                            <p className="text-xs text-(--color-slate) leading-relaxed mb-3">
-                                {proj.desc}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {proj.chips.map((chip) => (
-                                    <span
-                                        key={chip}
-                                        className={"text-xs px-3 py-1 rounded-full font-medium " + chipColor(chip)}
-                                    >
-                                        {chip}
-                                    </span>
-                                ))}
+                            <div className={cardBodyClass}>
+                                <h3 className={`${cardTitleClass} flex items-center gap-1`}>
+                                    {proj.title}
+                                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-xs">↗</span>
+                                </h3>
+                                <p className={cardDescClass}>{proj.desc}</p>
+                                <div className={cardChipsClass}>
+                                    {proj.chips.map((chip) => (
+                                        <span
+                                            key={chip}
+                                            className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
+                                        >
+                                            {chip}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                     </RevealWrapper>
+                    </RevealWrapper>
                 ))}
             </div>
         </section>
