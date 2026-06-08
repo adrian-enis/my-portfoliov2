@@ -1,6 +1,6 @@
 # Project Overview
 
-**Portfolio personal** de Adrian Enis — desarrollador full-stack. Sitio web estático de una sola página que presenta perfil profesional, experiencia laboral, proyectos, habilidades técnicas y datos de contacto.
+**Portfolio personal** de Adrian Enis — desarrollador full-stack. Sitio web estático de una sola página que presenta perfil profesional, experiencia laboral, proyectos y habilidades técnicas.
 
 - **Propósito**: Vitrina profesional / carta de presentación técnica
 - **Dominio**: Portafolio web personal
@@ -16,7 +16,7 @@
 | Framework        | Next.js 16.2.6 (App Router)                          |
 | UI Library       | React 19.2                                            |
 | Styling          | Tailwind CSS v4, CSS nativo                          |
-| Animación        | Framer Motion 12.4 + IntersectionObserver            |
+| Animación        | IntersectionObserver (CSS transitions)               |
 | Linter           | ESLint 9 + `eslint-config-next`                      |
 | Paquetería       | pnpm                                                 |
 | Deployment       | Vercel (implícito por config)                        |
@@ -72,7 +72,6 @@ src/
 │   ├── Experience.tsx   ← Sección "Experiencia"
 │   ├── Projects.tsx     ← Sección "Proyectos"
 │   ├── Skills.tsx       ← Sección "Skills técnicas"
-│   └── Contact.tsx      ← Sección "Contacto" + footer
 │
 ├── data/
 │   ├── experience.ts    ← Datos de experiencia laboral
@@ -98,7 +97,7 @@ Orquestador principal. Renderiza sidebar (desktop), cabecera (mobile/tablet) y e
 
 ### Key Functions
 
-- Resuelve datos de `getExperience()` y `getProjects()` en paralelo
+- Resuelve datos de `getExperience()`, `getProjects()` y `getSkills()` en paralelo
 - Decide layout responsive: `aside` en lg+, `header` en mobile
 - Pasa `items` como props a `Experience` y `Projects`
 
@@ -114,7 +113,7 @@ Navegación lateral con indicador de sección activa.
 
 - `useActiveSection()` → detecta qué sección está en viewport
 - Aplica clases `.nav-line-active` / `.nav-text-active` al ítem activo
-- Renderiza 5 enlaces: sobre-mí, experiencia, proyectos, skills, contacto
+- Renderiza 4 enlaces: sobre-mí, experiencia, proyectos, skills
 
 ---
 
@@ -147,7 +146,7 @@ Array de `ids` (strings)
 
 ### Detalle técnico
 
-Usa `rootMargin: "-20% 0px -70% 0px"` para activar la sección cuando su parte superior entra al 20% superior de la ventana.
+Usa `rootMargin: "-40% 0px -55% 0px"` para detectar la sección activa basado en qué porción ocupa del viewport.
 
 ---
 
@@ -176,7 +175,7 @@ page.tsx resuelve datos (experience, projects)
        ↓
 Renderiza:
   - Sidebar: ProfileHeader → NavMenu → SocialLinks
-  - Main: About → Experience → Projects → Skills → Contact
+  - Main: About → Experience → Projects → Skills
        ↓
 Cliente hidrata:
   - NavMenu activa IntersectionObserver
@@ -232,9 +231,9 @@ useActiveSection actualiza estado → NavMenu pinta línea activa
 
 ---
 
-## IntersectionObserver nativo (sin Framer Motion)
+## IntersectionObserver nativo (CSS transitions)
 
-**Razón**: Las animaciones de scroll y detección de sección activa se implementan con APIs del browser. Framer Motion está en `package.json` pero no se usa en el código actual.
+**Razón**: Las animaciones de scroll y detección de sección activa se implementan con APIs del browser + transiciones CSS. Sin dependencias externas de animación.
 
 **Tradeoff**: Menos abstracción, más control. El código es más explícito y liviano.
 
