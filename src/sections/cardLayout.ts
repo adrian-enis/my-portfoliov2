@@ -1,8 +1,8 @@
 /** Ritmo tipográfico inspirado en brittanychiang.com */
-export const leadingBody = "leading-[1.75]";
-export const leadingTight = "leading-snug";
+const leadingBody = "leading-[1.75]";
+const leadingTight = "leading-snug";
 
-export const proseClass = `text-(--color-slate) text-lg ${leadingBody}`;
+const proseClass = `text-(--color-slate) text-lg ${leadingBody}`;
 export const proseParagraphClass = `${proseClass} mb-8 last:mb-0`;
 
 export const listClass = "flex flex-col gap-16 sm:gap-20";
