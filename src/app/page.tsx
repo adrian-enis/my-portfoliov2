@@ -28,9 +28,9 @@ export default async function Home() {
         <SocialLinks />
       </aside>
 
-      <main className="site-main flex flex-col gap-28 sm:gap-32 lg:gap-40">
+      <main className="site-main flex flex-col">
         {/* Encabezado mobile/tablet */}
-        <header className="lg:hidden flex flex-col gap-10 pb-4">
+        <header className="lg:hidden flex flex-col gap-10 pt-16 pb-4">
           <ProfileHeader showBio={false} />
           <SocialLinks />
         </header>

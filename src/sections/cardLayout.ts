@@ -2,7 +2,7 @@
 export const leadingBody = "leading-[1.75]";
 export const leadingTight = "leading-snug";
 
-export const proseClass = `text-(--color-slate) text-base ${leadingBody}`;
+export const proseClass = `text-(--color-slate) text-lg ${leadingBody}`;
 export const proseParagraphClass = `${proseClass} mb-8 last:mb-0`;
 
 export const listClass = "flex flex-col gap-16 sm:gap-20";
@@ -16,11 +16,11 @@ export const cardClassProjects =
 export const cardBodyClass = "min-w-0 space-y-6";
 
 export const cardTitleClass =
-    `text-base font-medium text-(--color-slate-lighter) ${leadingTight}`;
+    `text-lg font-medium text-(--color-slate-lighter) ${leadingTight}`;
 
-export const cardDescClass = `text-base text-(--color-slate) ${leadingBody}`;
+export const cardDescClass = `text-lg text-(--color-slate) ${leadingBody}`;
 
 export const cardChipsClass = "flex flex-wrap gap-2 pt-1";
 
 export const cardPeriodClass =
-    `text-xs text-(--color-slate) uppercase tracking-wider ${leadingBody} sm:pt-1 font-medium`;
+    `text-sm text-(--color-slate) uppercase tracking-wider ${leadingBody} sm:pt-1 font-medium`;

@@ -24,7 +24,7 @@ const chipColor = (chip: string) => {
 
 export default function Projects({ id, items }: Props) {
     return (
-        <section id={id} className="scroll-mt-24">
+        <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
             <div className={listClass}>
                 {items.map((proj, i) => (
                     <RevealWrapper key={proj.title} delay={i * 100}>
@@ -42,14 +42,14 @@ export default function Projects({ id, items }: Props) {
                                 <div className={cardBodyClass}>
                                     <h3 className={`${cardTitleClass} flex items-center gap-1`}>
                                         {proj.title}
-                                        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-xs">↗</span>
+                                            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-sm">↗</span>
                                     </h3>
                                     <p className={cardDescClass}>{proj.desc}</p>
                                     <div className={cardChipsClass}>
                                         {proj.chips.map((chip) => (
                                             <span
                                                 key={chip}
-                                                className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
+                                                className={"text-sm px-3 py-1 rounded-full font-medium " + chipColor(chip)}
                                             >
                                                 {chip}
                                             </span>

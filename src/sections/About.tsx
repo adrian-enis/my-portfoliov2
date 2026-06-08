@@ -6,7 +6,7 @@ type Props = {
 
 export default function About({ id }: Props) {
     return (
-        <section id={id} className="scroll-mt-24">
+        <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
             <p className={proseParagraphClass}>
                 Soy un desarrollador full-stack con{" "}
                 <span className="text-(--color-slate-lighter) font-medium">3 años de experiencia</span>{" "}

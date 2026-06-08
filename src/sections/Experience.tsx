@@ -31,7 +31,7 @@ const chipColor = (chip: string) => {
 
 export default function Experience({ id, items }: Props) {
     return (
-        <section id={id} className="scroll-mt-24">
+        <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
             <div className={listClass}>
                 {items.map((exp, i) => (
                     <RevealWrapper key={exp.company} delay={i * 100}>
@@ -51,7 +51,7 @@ export default function Experience({ id, items }: Props) {
                                         {exp.chips.map((chip) => (
                                             <span
                                                 key={chip}
-                                                className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
+                                                className={"text-sm px-3 py-1 rounded-full font-medium " + chipColor(chip)}
                                             >
                                                 {chip}
                                             </span>
@@ -75,7 +75,7 @@ export default function Experience({ id, items }: Props) {
                                         {exp.chips.map((chip) => (
                                             <span
                                                 key={chip}
-                                                className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
+                                                className={"text-sm px-3 py-1 rounded-full font-medium " + chipColor(chip)}
                                             >
                                                 {chip}
                                             </span>
@@ -90,7 +90,7 @@ export default function Experience({ id, items }: Props) {
 
             <a
                 href="#"
-                className="inline-flex items-center gap-2 mt-16 lg:ml-5 text-sm font-medium text-(--color-slate-lighter) border-b border-transparent hover:border-(--color-green) hover:text-(--color-green) transition-all duration-300 pb-px"
+                className="inline-flex items-center gap-2 mt-16 lg:ml-5 text-base font-medium text-(--color-slate-lighter) border-b border-transparent hover:border-(--color-green) hover:text-(--color-green) transition-all duration-300 pb-px"
             >
                 Ver CV completo
                 <span className="transition-transform duration-200 hover:translate-x-1">→</span>
