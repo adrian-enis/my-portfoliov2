@@ -16,7 +16,7 @@ const links = [
     fill: true,
   },
   {
-    href: "mailto:adrianenis2000@gmail.com",
+    href: "mailto:adrianenos2000@gmail.com",
     label: "Email",
     icon: (
       <>
@@ -41,7 +41,7 @@ export default function SocialLinks() {
           className="text-(--color-slate) hover:text-(--color-green) transition-colors duration-300"
         >
           <svg
-            className="w-5 h-5"
+            className="w-6 h-6"
             fill={fill ? "currentColor" : "none"}
             stroke={fill ? undefined : "currentColor"}
             strokeWidth={fill ? undefined : 1.8}
