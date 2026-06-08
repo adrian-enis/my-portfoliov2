@@ -28,9 +28,9 @@ const links = [
   },
 ] as const;
 
-export default function SocialLinks({ className = "" }: { className?: string }) {
+export default function SocialLinks() {
   return (
-    <div className={`flex gap-5 ${className}`}>
+    <div className="flex gap-5">
       {links.map(({ href, label, icon, fill }) => (
         <a
           key={href}

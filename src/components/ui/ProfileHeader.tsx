@@ -1,11 +1,10 @@
 type Props = {
   showBio?: boolean;
-  className?: string;
 };
 
-export default function ProfileHeader({ showBio = true, className = "" }: Props) {
+export default function ProfileHeader({ showBio = true }: Props) {
   return (
-    <div className={className}>
+    <div>
       <p className="text-(--color-green) font-mono text-base mb-4 leading-[1.75]">
         Hola, mi nombre es
       </p>
