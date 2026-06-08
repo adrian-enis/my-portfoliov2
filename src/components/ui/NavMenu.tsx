@@ -1,13 +1,12 @@
 "use client";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
-const items = ["sobre-mí", "experiencia", "proyectos", "skills", "contacto"];
+const items = ["sobre-mí", "experiencia", "proyectos", "skills"];
 const labels: Record<string, string> = {
   "sobre-mí":   "Sobre mí",
   "experiencia":"Experiencia",
   "proyectos":  "Proyectos",
   "skills":     "Skills",
-  "contacto":   "Contacto",
 };
 
 export default function NavMenu() {
