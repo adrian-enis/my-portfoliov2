@@ -4,6 +4,7 @@ export type Experience = {
   period: string;
   desc: string;
   chips: string[];
+  url?: string;
 };
 
 export async function getExperience(): Promise<Experience[]> {
@@ -21,6 +22,7 @@ export async function getExperience(): Promise<Experience[]> {
       period: "ENE 2024 — AGO 2025",
       desc: "Migración a Next.js 14 App Router. Server Actions, Prisma ORM, PostgreSQL y componentes accesibles con Headless UI.",
       chips: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma ORM"],
+      url: "https://www.tiendasdaka.com/ve",
     },
     {
       company: "MultiMax",
@@ -28,6 +30,7 @@ export async function getExperience(): Promise<Experience[]> {
       period: "NOV 2022 — OCT 2023",
       desc: "E-commerce MERN con APIs RESTful, autenticación JWT por roles, Zustand, React Query y validación con Zod.",
       chips: ["React", "MongoDB", "Express", "Zustand", "Zod"],
+      url: "https://multimax.com.ve/",
     },
   ];
 }

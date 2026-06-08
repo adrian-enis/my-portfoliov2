@@ -3,27 +3,38 @@ export type Project = {
   desc: string;
   chips: string[];
   emoji: string;
+  url: string;
 };
 
 export async function getProjects(): Promise<Project[]> {
   return [
     {
-      emoji: "🍦",
-      title: "Helados Dibuluc — Marketplace MVP",
-      desc: "Marketplace end-to-end con gestión de inventario, carrito y pagos. Metodología AI-First con Cursor MCP.",
-      chips: ["React", "Node.js", "PostgreSQL", "AI-First", "CI/CD"],
+      emoji: "🎠",
+      title: "Design Slider — Carrusel Interactivo",
+      desc: "Carrusel de imágenes con navegación por thumbnails y flechas. HTML, CSS y JavaScript vanilla con diseño responsivo.",
+      chips: ["HTML", "CSS", "JavaScript"],
+      url: "https://inquisitive-sprite-a6ef8a.netlify.app/",
     },
     {
-      emoji: "🏪",
-      title: "Tiendas Daka — E-commerce",
-      desc: "Plataforma de retail venezolana. Migración a Next.js 14 con mejoras críticas de Core Web Vitals y SEO.",
-      chips: ["Next.js 14", "TypeScript", "Prisma", "Headless UI"],
+      emoji: "⚡",
+      title: "React App — Landing Page",
+      desc: "Aplicación React con Bootstrap y tipografía personalizada. Interfaz moderna y responsive.",
+      chips: ["React", "Vite", "Bootstrap"],
+      url: "https://melodic-tiramisu-841958.netlify.app/",
     },
     {
-      emoji: "🛒",
-      title: "MultiMax — Plataforma E-commerce",
-      desc: "E-commerce MERN con autenticación JWT por roles y estado global optimizado.",
-      chips: ["React", "MongoDB", "Express", "React Query"],
+      emoji: "📊",
+      title: "Expense Planner",
+      desc: "Planificador de gastos personal. Aplicación para registrar, categorizar y visualizar gastos con Tailwind CSS.",
+      chips: ["React", "Tailwind CSS", "Vite"],
+      url: "https://radiant-pavlova-b62f1f.netlify.app/",
+    },
+    {
+      emoji: "🧩",
+      title: "Tricki — App Web",
+      desc: "Aplicación web desarrollada con React y Vite. Interfaz dinámica y optimizada para rendimiento.",
+      chips: ["React", "Vite", "JavaScript"],
+      url: "https://tricki.netlify.app/",
     },
   ];
 }

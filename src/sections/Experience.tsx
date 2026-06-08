@@ -35,29 +35,55 @@ export default function Experience({ id, items }: Props) {
             <div className={listClass}>
                 {items.map((exp, i) => (
                     <RevealWrapper key={exp.company} delay={i * 100}>
-                        <div className={cardClass}>
-                            <span className={cardPeriodClass}>
-                                {exp.period}
-                            </span>
-                            <div className={cardBodyClass}>
-                                <h3 className={cardTitleClass}>
-                                    {exp.role}{" "}
-                                    <span className="text-(--color-green)">· {exp.company}</span>
-                                    <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
-                                </h3>
-                                <p className={cardDescClass}>{exp.desc}</p>
-                                <div className={cardChipsClass}>
-                                    {exp.chips.map((chip) => (
-                                        <span
-                                            key={chip}
-                                            className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
-                                        >
-                                            {chip}
-                                        </span>
-                                    ))}
+                        {exp.url ? (
+                            <a href={exp.url} target="_blank" rel="noopener" className={cardClass}>
+                                <span className={cardPeriodClass}>
+                                    {exp.period}
+                                </span>
+                                <div className={cardBodyClass}>
+                                    <h3 className={cardTitleClass}>
+                                        {exp.role}{" "}
+                                        <span className="text-(--color-green)">· {exp.company}</span>
+                                        <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
+                                    </h3>
+                                    <p className={cardDescClass}>{exp.desc}</p>
+                                    <div className={cardChipsClass}>
+                                        {exp.chips.map((chip) => (
+                                            <span
+                                                key={chip}
+                                                className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
+                                            >
+                                                {chip}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </a>
+                        ) : (
+                            <div className={cardClass}>
+                                <span className={cardPeriodClass}>
+                                    {exp.period}
+                                </span>
+                                <div className={cardBodyClass}>
+                                    <h3 className={cardTitleClass}>
+                                        {exp.role}{" "}
+                                        <span className="text-(--color-green)">· {exp.company}</span>
+                                        <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
+                                    </h3>
+                                    <p className={cardDescClass}>{exp.desc}</p>
+                                    <div className={cardChipsClass}>
+                                        {exp.chips.map((chip) => (
+                                            <span
+                                                key={chip}
+                                                className={"text-xs px-2.5 py-1 rounded-full font-medium " + chipColor(chip)}
+                                            >
+                                                {chip}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
                     </RevealWrapper>
                 ))}
             </div>
