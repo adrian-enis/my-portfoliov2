@@ -4,6 +4,7 @@ import { getSkills } from "@/data/skills";
 import ProfileHeader from "@/components/ui/ProfileHeader";
 import SocialLinks from "@/components/ui/SocialLinks";
 import NavMenu from "@/components/ui/NavMenu";
+import DownloadCV from "@/components/ui/DownloadCV";
 import About from "@/sections/About";
 import Experience from "@/sections/Experience";
 import Projects from "@/sections/Projects";
@@ -24,6 +25,7 @@ export default async function Home() {
         <div className="flex flex-col gap-10">
           <ProfileHeader />
           <NavMenu />
+          <DownloadCV />
         </div>
         <SocialLinks />
       </aside>
@@ -33,6 +35,7 @@ export default async function Home() {
         <header className="lg:hidden flex flex-col gap-10 pt-16 pb-4">
           <ProfileHeader showBio={false} />
           <SocialLinks />
+          <DownloadCV />
         </header>
 
         <About id="sobre-mí" />

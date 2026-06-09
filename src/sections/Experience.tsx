@@ -76,13 +76,6 @@ export default function Experience({ id, items }: Props) {
                 ))}
             </div>
 
-            <a
-                href="#"
-                className="inline-flex items-center gap-2 mt-16 lg:ml-5 text-base font-medium text-(--color-slate-lighter) border-b border-transparent hover:border-(--color-green) hover:text-(--color-green) transition-all duration-300 pb-px"
-            >
-                Ver CV completo
-                <span className="transition-transform duration-200 hover:translate-x-1">→</span>
-            </a>
         </section>
     );
 }
