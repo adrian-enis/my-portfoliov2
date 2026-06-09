@@ -1,7 +1,7 @@
 export default function DownloadIcon() {
   return (
     <svg
-      className="w-4 h-4"
+      className="w-5 h-5"
       fill="none"
       stroke="currentColor"
       strokeWidth={2}

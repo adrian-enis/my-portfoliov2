@@ -9,7 +9,7 @@ export default function DownloadCV({ className = "" }: Props) {
     <a
       href="/CV-ADRIAN-v2.pdf"
       download="CV-Adrian-Enis.pdf"
-      className={`inline-flex items-center gap-2 px-4 py-2 border border-(--color-green) rounded text-sm font-mono text-(--color-green) hover:bg-(--color-green)/10 transition-all duration-300 w-fit ${className}`}
+      className={`inline-flex items-center gap-3 px-6 py-3 border border-(--color-green) rounded text-base font-semibold font-mono text-(--color-green) hover:bg-(--color-green)/10 active:scale-95 transition-all duration-300 w-fit ${className}`}
     >
       <DownloadIcon />
       Descargar CV
