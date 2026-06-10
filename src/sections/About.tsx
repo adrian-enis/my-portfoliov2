@@ -8,24 +8,19 @@ export default function About({ id }: Props) {
     return (
         <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
             <p className={proseParagraphClass}>
-                Soy un desarrollador full-stack con{" "}
-                <span className="text-(--color-slate-lighter) font-medium">3 años de experiencia</span>{" "}
-                construyendo aplicaciones web escalables. Mi foco está en el ecosistema
-                JavaScript/TypeScript y en integrar inteligencia artificial de forma
-                estratégica para optimizar flujos de trabajo reales.
+                Soy desarrollador Full-stack especializado en la creación de aplicaciones web
+                utilizando React, Next.js, Node.js y TypeScript. Disfruto construir productos
+                que resuelvan problemas reales y aporten valor a negocios y usuarios.
             </p>
             <p className={proseParagraphClass}>
-                Me especializo en la metodología{" "}
-                <span className="text-(--color-green) font-medium">Spec-Driven Development (AI-First)</span>,
-                usando herramientas como Cursor y MCP para automatizar lógica de negocio
-                y entregar productos alineados 100% con las especificaciones desde el primer día.
+                He trabajado en proyectos relacionados con e-commerce, gestión de datos y
+                automatización de procesos, participando tanto en el desarrollo de interfaces
+                modernas como en la implementación de lógica de negocio y APIs.
             </p>
             <p className={proseParagraphClass}>
-                Actualmente curso Ingeniería en Informática en la{" "}
-                <span className="text-(--color-slate-lighter) font-medium">
-                    Universidad Nacional Experimental de Guayana
-                </span>{" "}
-                y trabajo en proyectos propios de marketplace y automatización.
+                Utilizo herramientas modernas como Cursor y MCP para acelerar el desarrollo,
+                validar especificaciones y mejorar la productividad, manteniendo siempre el
+                foco en la calidad, mantenibilidad y escalabilidad del software.
             </p>
         </section>
     );
