@@ -13,8 +13,8 @@ export async function getExperience(): Promise<Experience[]> {
       company: "Helados Dibuluc",
       role: "Full-stack Developer",
       period: "ENE 2026 — PRESENTE",
-      desc: "Lideré el desarrollo de un marketplace para una heladería artesanal, transformando procesos manuales de ventas e inventario en flujos digitales centralizados. • Implementé automatizaciones basadas en IA y herramientas MCP para agilizar la gestión operativa, reduciendo tareas repetitivas y mejorando la trazabilidad de pedidos e inventario. • Diseñé la arquitectura Full-stack de la solución utilizando React, Node.js y bases de datos relacionales, priorizando escalabilidad, mantenibilidad y rapidez de iteración. • Establecí prácticas de desarrollo guiadas por especificaciones y validación automatizada, acelerando la entrega de funcionalidades y disminuyendo retrabajos durante el desarrollo.",
-      chips: ["React", "Node.js", "GitHub Actions", "Cursor MCP", "AI-First"],
+      desc: "Diseñé la arquitectura y desarrollé el backend de una tienda online para una heladería artesanal, estructurado en capas (routes, controllers, services, repositories) sobre Express + TypeScript con PostgreSQL vía Supabase. Definí el modelo de datos y el flujo de checkout con integración a WhatsApp. Configuré el proyecto como monorepo con pnpm workspaces para escalar a frontend en React + Vite + Tailwind CSS.",
+      chips: ["TypeScript", "Express", "PostgreSQL", "Supabase", "React", "Tailwind CSS", "pnpm"],
     },
     {
       company: "Tiendas Daka",
