@@ -4,9 +4,6 @@ import {
     cardBodyClass,
     cardChipsClass,
     cardClass,
-    cardDescClass,
-    cardPeriodClass,
-    cardTitleClass,
     listClass,
 } from "@/sections/cardLayout";
 
@@ -32,21 +29,21 @@ const chipColor = (chip: string) => {
 function ExpCardContent({ exp }: { exp: Experience }) {
     return (
         <>
-            <span className={`${cardPeriodClass} text-xs`}>
+            <span className="exp-period">
                 {exp.period}
             </span>
             <div className={cardBodyClass}>
-                <h3 className={`${cardTitleClass} text-base leading-none`}>
+                <h3 className="exp-title">
                     {exp.role}{" "}
                     <span className="text-(--color-green)">· {exp.company}</span>
                     <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
                 </h3>
-                <p className={`${cardDescClass} text-sm`}>{exp.desc}</p>
+                <p className="exp-desc">{exp.desc}</p>
                 <div className={cardChipsClass}>
                     {exp.chips.map((chip) => (
                         <span
                             key={chip}
-                            className={"text-xs px-2.5 py-0.5 rounded-full font-medium " + chipColor(chip)}
+                            className={"exp-chip " + chipColor(chip)}
                         >
                             {chip}
                         </span>

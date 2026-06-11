@@ -53,6 +53,8 @@ body {
   color: #0a192f;
 }
 
+
+/* ===== LAYOUT GLOBAL ===== */
 .main-container {
   max-width: 1200px;
   min-height: 100vh;
@@ -69,7 +71,39 @@ body {
   }
 }
 
-/* NAV LINES */
+/* ===== SIDEBAR ===== */
+.site-aside {
+  flex-shrink: 0;
+  width: 40%;
+  min-width: 320px;
+  padding: 10rem 4rem 6rem;
+}
+
+@media (min-width: 1024px) {
+  .site-aside {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+  }
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.site-main {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .site-main {
+    flex: 1;
+    max-width: 560px;
+    padding: 0;
+  }
+}
+
+/* ===== NAVEGACIÓN LATERAL ===== */
 .nav-line {
   display: block;
   height: 1px;
@@ -87,6 +121,7 @@ body {
 .nav-item:hover .nav-text {
   color: #ccd6f6;
 }
+
 .nav-line-active {
   width: 48px;
   background-color: #64ffda;
@@ -96,43 +131,13 @@ body {
   color: #e6f1ff;
 }
 
-/* Sidebar: sticky solo en desktop */
-.site-aside {
-  flex-shrink: 0;
-  width: 40%;
-  min-width: 320px;
-  padding: 10rem 4rem 6rem;
+/* ===== SECCIONES (SCROLL SNAP) ===== */
+section {
+  scroll-snap-align: start;
+  margin-bottom: 0;
 }
 
-@media (min-width: 1024px) {
-  .site-aside {
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    height: 100vh;
-  }
-}
-
-
-
-
-
-
-/* Contenido principal */
-.site-main {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .site-main {
-    flex: 1;
-    max-width: 560px;
-    padding: 0;
-  }
-}
-
+/* ===== CARDS (compartido experiencia / proyectos) ===== */
 .exp-card:hover {
   background: rgba(100, 255, 218, 0.03);
   border-color: rgba(100, 255, 218, 0.1);
@@ -143,21 +148,43 @@ body {
   color: #64ffda;
 }
 
-
-/* Animation frames */
-.reveal { opacity: 0; transform: translateY(20px); 
-  transition: opacity 0.5s cubic-bezier(0.645,0.045,0.355,1), 
-  transform 0.5s cubic-bezier(0.645,0.045,0.355,1);
-}
-.reveal.revealed { opacity: 1; transform: translateY(0); }
-
-
-
-section {
-  scroll-snap-align: start;
-  margin-bottom: 0;
+/* ===== EXPERIENCIA — TIPOGRAFÍA ===== */
+.exp-period {
+  font-size: 0.75rem;
+  line-height: 1.75;
+  color: var(--color-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
+@media (min-width: 640px) {
+  .exp-period {
+    padding-top: 0.25rem;
+  }
+}
+
+.exp-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-slate-lighter);
+}
+
+.exp-desc {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--color-slate);
+}
+
+.exp-chip {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+/* ===== BOTÓN DESCARGAR CV ===== */
 .cv-button {
   display: inline-flex;
   align-items: center;
@@ -179,4 +206,17 @@ section {
 
 .cv-button:active {
   transform: scale(0.95);
+}
+
+/* ===== ANIMACIONES ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
