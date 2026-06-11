@@ -36,7 +36,7 @@ function ExpCardContent({ exp }: { exp: Experience }) {
                 {exp.period}
             </span>
             <div className={cardBodyClass}>
-                <h3 className={`${cardTitleClass} text-base leading-tight`}>
+                <h3 className={`${cardTitleClass} text-base leading-none`}>
                     {exp.role}{" "}
                     <span className="text-(--color-green)">· {exp.company}</span>
                     <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
