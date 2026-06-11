@@ -4,8 +4,6 @@ import {
     cardBodyClass,
     cardChipsClass,
     cardClassProjects,
-    cardDescClass,
-    cardTitleClass,
     listClass,
 } from "@/sections/cardLayout";
 
@@ -40,16 +38,16 @@ export default function Projects({ id, items }: Props) {
                                 </div>
 
                                 <div className={cardBodyClass}>
-                                    <h3 className={`${cardTitleClass} flex items-center gap-1`}>
+                                    <h3 className="proj-title flex items-center gap-1">
                                         {proj.title}
-                                            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-sm">↗</span>
+                                            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-xs">↗</span>
                                     </h3>
-                                    <p className={cardDescClass}>{proj.desc}</p>
+                                    <p className="proj-desc">{proj.desc}</p>
                                     <div className={cardChipsClass}>
                                         {proj.chips.map((chip) => (
                                             <span
                                                 key={chip}
-                                                className={"text-sm px-3 py-1 rounded-full font-medium " + chipColor(chip)}
+                                                className={"proj-chip " + chipColor(chip)}
                                             >
                                                 {chip}
                                             </span>

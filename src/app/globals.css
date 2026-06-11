@@ -184,6 +184,34 @@ section {
   font-weight: 500;
 }
 
+/* ===== PROYECTOS — TIPOGRAFÍA ===== */
+.proj-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-slate-lighter);
+}
+
+.proj-desc {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--color-slate);
+}
+
+.proj-chip {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+/* ===== SKILLS — TIPOGRAFÍA ===== */
+.skill-item {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-slate);
+}
+
 /* ===== BOTÓN DESCARGAR CV ===== */
 .cv-button {
   display: inline-flex;

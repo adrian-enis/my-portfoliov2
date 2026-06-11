@@ -1,6 +1,5 @@
 /** Ritmo tipográfico inspirado en brittanychiang.com */
 const leadingBody = "leading-[1.75]";
-const leadingTight = "leading-snug";
 
 const proseClass = `text-(--color-slate) text-lg ${leadingBody}`;
 export const proseParagraphClass = `${proseClass} mb-8 last:mb-0`;
@@ -15,12 +14,4 @@ export const cardClassProjects =
 
 export const cardBodyClass = "min-w-0 space-y-6";
 
-export const cardTitleClass =
-    `text-lg font-medium text-(--color-slate-lighter) ${leadingTight}`;
-
-export const cardDescClass = `text-lg text-(--color-slate) ${leadingBody}`;
-
 export const cardChipsClass = "flex flex-wrap gap-2 pt-1";
-
-export const cardPeriodClass =
-    `text-sm text-(--color-slate) uppercase tracking-wider ${leadingBody} sm:pt-1 font-medium`;

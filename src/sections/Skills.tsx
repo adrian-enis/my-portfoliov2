@@ -1,5 +1,4 @@
 import type { SkillGroup } from "@/data/skills";
-import { cardDescClass } from "@/sections/cardLayout";
 
 type Props = { id?: string; items: SkillGroup[] };
 
@@ -14,7 +13,7 @@ export default function Skills({ id, items }: Props) {
             </h3>
             <ul className="flex flex-col gap-2.5">
               {group.items.map((skill) => (
-                <li key={skill} className={`flex items-start gap-2.5 ${cardDescClass}`}>
+                <li key={skill} className="flex items-start gap-2.5 skill-item">
                   <span className="text-(--color-green) mt-1.5 flex-shrink-0">▹</span>
                   {skill}
                 </li>
