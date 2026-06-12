@@ -12,14 +12,14 @@ export default function ProfileHeader({ showBio = true }: Props) {
         Adrian Enis
       </h1>
       <h2 className="text-xl sm:text-2xl text-(--color-slate-light) mb-6 leading-[1.75]">
-        Full-stack Developer · AI-First
+        Full-stack Developer
       </h2>
       {showBio && (
         <p className="text-(--color-slate) text-base sm:text-lg leading-[1.75] max-w-md">
           Construyo aplicaciones web escalables con{" "}
           <span className="text-(--color-slate-lighter)">React, Next.js y Node.js</span>,
-          con enfoque en arquitecturas{" "}
-          <span className="text-(--color-green)">AI-First</span>.
+          con enfoque en arquitecturas{" "} modernas y mantenibles
+      
         </p>
       )}
     </div>
