@@ -7,7 +7,7 @@ type Props = {
 export default function DownloadCV({ className = "" }: Props) {
   return (
     <a
-      href="/CV-ADRIAN-v2.pdf"
+      href="/CV-Adrian-Enis.pdf"
       download="CV-Adrian-Enis.pdf"
       className={`cv-button ${className}`}
     >
