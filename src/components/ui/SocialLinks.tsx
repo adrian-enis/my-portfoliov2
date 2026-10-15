@@ -1,3 +1,5 @@
+import { EMAIL } from "@/data/contact";
+
 const links = [
   {
     href: "https://github.com/adrian-enis",
@@ -16,7 +18,7 @@ const links = [
     fill: true,
   },
   {
-    href: "mailto:adrianenos2000@gmail.com",
+    href: `mailto:${EMAIL}`,
     label: "Email",
     icon: (
       <>

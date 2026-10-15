@@ -1,27 +1,22 @@
+import Section from "@/components/common/Section";
+import ChipList from "@/components/ui/ChipList";
 import type { SkillGroup } from "@/data/skills";
 
-type Props = { id?: string; items: SkillGroup[] };
+type Props = { id: string; items: SkillGroup[] };
 
 export default function Skills({ id, items }: Props) {
   return (
-    <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-12">
+    <Section id={id} title="Skills">
+      <div className="flex flex-col">
         {items.map((group) => (
-          <div key={group.title}>
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-(--color-green) mb-5">
+          <div key={group.title} className="skill-row">
+            <h3 className="font-mono text-sm font-medium text-(--color-green)">
               {group.title}
             </h3>
-            <ul className="flex flex-col gap-2.5">
-              {group.items.map((skill) => (
-                <li key={skill} className="flex items-start gap-2.5 skill-item">
-                  <span className="text-(--color-green) mt-1.5 flex-shrink-0">▹</span>
-                  {skill}
-                </li>
-              ))}
-            </ul>
+            <ChipList chips={group.items} muted />
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

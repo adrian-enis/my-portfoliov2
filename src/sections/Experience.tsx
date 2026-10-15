@@ -1,53 +1,47 @@
 import RevealWrapper from "@/components/common/RevealWrapper";
+import Section from "@/components/common/Section";
+import MarkedText from "@/components/common/MarkedText";
+import ChipList from "@/components/ui/ChipList";
 import type { Experience } from "@/data/experience";
-import {
-    cardBodyClass,
-    cardChipsClass,
-    cardClass,
-    listClass,
-} from "@/sections/cardLayout";
+import { cardBodyClass, cardClass, listClass } from "@/sections/cardLayout";
 
 type Props = {
-    id?: string;
+    id: string;
     items: Experience[];
 };
 
-const chipColors: Record<string, string> = {
-    blue: "bg-blue-900/30 text-blue-300 border border-blue-700/30",
-    green: "bg-teal-900/30 text-teal-300 border border-teal-700/30",
-    purple: "bg-purple-900/30 text-purple-300 border border-purple-700/30",
-};
-
-const chipColor = (chip: string) => {
-    const green = ["Node.js", "PostgreSQL", "MongoDB", "Prisma ORM", "Express", "GitHub Actions", "CI/CD"];
-    const purple = ["AI-First", "Cursor MCP", "Agentic Workflows", "Spec-Driven Dev"];
-    if (purple.some(t => chip.includes(t))) return chipColors.purple;
-    if (green.some(t => chip.includes(t))) return chipColors.green;
-    return chipColors.blue;
-};
+function Period({ period }: { period: string }) {
+    const [start, end] = period.split(" — ");
+    return (
+        <span className="exp-period">
+            {start} —{" "}
+            {end === "PRESENTE" ? <span className="text-(--color-gold)">{end}</span> : end}
+        </span>
+    );
+}
 
 function ExpCardContent({ exp }: { exp: Experience }) {
     return (
         <>
-            <span className="exp-period">
-                {exp.period}
-            </span>
+            <Period period={exp.period} />
             <div className={cardBodyClass}>
                 <h3 className="exp-title">
                     {exp.role}{" "}
                     <span className="text-(--color-green)">· {exp.company}</span>
-                    <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
+                    {exp.url && (
+                        <span className="inline-block ml-1 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50">↗</span>
+                    )}
                 </h3>
-                <p className="exp-desc">{exp.desc}</p>
-                <div className={cardChipsClass}>
-                    {exp.chips.map((chip) => (
-                        <span
-                            key={chip}
-                            className={"exp-chip " + chipColor(chip)}
-                        >
-                            {chip}
-                        </span>
+                <p className="exp-lede">{exp.desc}</p>
+                <ul className="flex flex-col gap-2">
+                    {exp.highlights.map((item) => (
+                        <li key={item} className="exp-point">
+                            <span><MarkedText text={item} /></span>
+                        </li>
                     ))}
+                </ul>
+                <div className="pt-1">
+                    <ChipList chips={exp.chips} />
                 </div>
             </div>
         </>
@@ -56,7 +50,7 @@ function ExpCardContent({ exp }: { exp: Experience }) {
 
 export default function Experience({ id, items }: Props) {
     return (
-        <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
+        <Section id={id} title="Experiencia">
             <div className={listClass}>
                 {items.map((exp, i) => (
                     <RevealWrapper key={exp.company} delay={i * 100}>
@@ -72,7 +66,6 @@ export default function Experience({ id, items }: Props) {
                     </RevealWrapper>
                 ))}
             </div>
-
-        </section>
+        </Section>
     );
 }

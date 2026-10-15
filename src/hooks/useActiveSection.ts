@@ -17,7 +17,17 @@ export function useActiveSection(ids: string[]) {
       return observer;
     });
 
-    return () => observers.forEach((o) => o?.disconnect());
+    // La última sección es corta y nunca llega a la franja del observer: activarla al tocar el final.
+    const onScroll = () => {
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) setActive(ids[ids.length - 1]);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observers.forEach((o) => o?.disconnect());
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [ids]);
 
   return active;

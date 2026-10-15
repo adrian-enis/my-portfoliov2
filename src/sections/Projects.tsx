@@ -1,64 +1,68 @@
 import RevealWrapper from "@/components/common/RevealWrapper";
-import type { Project } from "@/data/projects";
-import {
-    cardBodyClass,
-    cardChipsClass,
-    cardClassProjects,
-    listClass,
-} from "@/sections/cardLayout";
+import Section from "@/components/common/Section";
+import ChipList from "@/components/ui/ChipList";
+import ProjectVisual from "@/components/ui/ProjectVisual";
+import type { ArchivedProject, Project } from "@/data/projects";
 
 type Props = {
-    id?: string;
+    id: string;
     items: Project[];
+    archive: ArchivedProject[];
 };
 
-const chipColor = (chip: string) => {
-    const green = ["Node.js", "PostgreSQL", "MongoDB", "Prisma", "Express", "CI/CD"];
-    const purple = ["AI-First", "Cursor MCP"];
-    if (purple.some(t => chip.includes(t))) return "bg-purple-900/30 text-purple-300 border border-purple-700/30";
-    if (green.some(t => chip.includes(t))) return "bg-teal-900/30 text-teal-300 border border-teal-700/30";
-    return "bg-blue-900/30 text-blue-300 border border-blue-700/30";
-};
+function ProjectCard({ proj }: { proj: Project }) {
+    const card = (
+        <article className="proj-card">
+            <ProjectVisual visual={proj.visual} />
+            <div className="flex flex-col gap-4 px-6 pt-5 pb-6">
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                    <h3 className="proj-title">{proj.title}</h3>
+                    {proj.status && (
+                        <span className={proj.status.tone === "wip" ? "pill pill-wip" : "pill"}>
+                            {proj.status.label}
+                        </span>
+                    )}
+                </div>
+                <p className="proj-desc">{proj.desc}</p>
+                <ChipList chips={proj.chips} />
+            </div>
+        </article>
+    );
 
-export default function Projects({ id, items }: Props) {
+    return proj.url ? (
+        <a href={proj.url} target="_blank" rel="noopener" className="block">
+            {card}
+        </a>
+    ) : (
+        card
+    );
+}
+
+export default function Projects({ id, items, archive }: Props) {
     return (
-        <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
-            <div className={listClass}>
+        <Section id={id} title="Proyectos">
+            <div className="flex flex-col gap-6">
                 {items.map((proj, i) => (
                     <RevealWrapper key={proj.title} delay={i * 100}>
-                        <a
-                            href={proj.url}
-                            target="_blank"
-                            rel="noopener"
-                            className="block"
-                        >
-                            <div className={cardClassProjects}>
-                                <div className="w-14 h-12 rounded border border-(--color-navy-lighter) bg-(--color-navy-light) flex items-center justify-center text-2xl shrink-0 transition-all duration-300 group-hover:border-teal-500/40">
-                                    {proj.emoji}
-                                </div>
-
-                                <div className={cardBodyClass}>
-                                    <h3 className="proj-title flex items-center gap-1">
-                                        {proj.title}
-                                            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 opacity-50 text-xs">↗</span>
-                                    </h3>
-                                    <p className="proj-desc">{proj.desc}</p>
-                                    <div className={cardChipsClass}>
-                                        {proj.chips.map((chip) => (
-                                            <span
-                                                key={chip}
-                                                className={"proj-chip " + chipColor(chip)}
-                                            >
-                                                {chip}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                        <ProjectCard proj={proj} />
                     </RevealWrapper>
                 ))}
             </div>
-        </section>
+
+            <div className="flex flex-col pt-4">
+                <h3 className="text-sm font-semibold text-(--color-slate-lighter) mb-2">
+                    Proyectos anteriores
+                </h3>
+                {archive.map((proj) => (
+                    <a key={proj.title} href={proj.url} target="_blank" rel="noopener" className="archive-row">
+                        <span className="flex flex-col">
+                            <span className="archive-name">{proj.title}</span>
+                            <span className="text-sm">{proj.chips.join(" · ")}</span>
+                        </span>
+                        <span className="archive-arrow" aria-hidden="true">↗</span>
+                    </a>
+                ))}
+            </div>
+        </Section>
     );
 }

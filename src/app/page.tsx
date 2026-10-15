@@ -1,5 +1,5 @@
 import { getExperience } from "@/data/experience";
-import { getProjects } from "@/data/projects";
+import { getArchivedProjects, getProjects } from "@/data/projects";
 import { getSkills } from "@/data/skills";
 import ProfileHeader from "@/components/ui/ProfileHeader";
 import SocialLinks from "@/components/ui/SocialLinks";
@@ -9,11 +9,13 @@ import About from "@/sections/About";
 import Experience from "@/sections/Experience";
 import Projects from "@/sections/Projects";
 import Skills from "@/sections/Skills";
+import Contact from "@/sections/Contact";
 
 export default async function Home() {
-  const [experience, projects, skills] = await Promise.all([
+  const [experience, projects, archivedProjects, skills] = await Promise.all([
     getExperience(),
     getProjects(),
+    getArchivedProjects(),
     getSkills(),
   ]);
 
@@ -22,26 +24,29 @@ export default async function Home() {
 
       {/* Sidebar: solo desktop (lg+) */}
       <aside className="site-aside hidden lg:flex flex-col justify-between">
-        <div className="flex flex-col gap-10">
-          <ProfileHeader />
-          <NavMenu />
+        <ProfileHeader />
+        <NavMenu />
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-5">
           <DownloadCV />
+          <SocialLinks />
         </div>
-        <SocialLinks />
       </aside>
 
-      <main className="site-main flex flex-col">
+      <main className="site-main flex flex-col gap-20 lg:gap-24">
         {/* Encabezado mobile/tablet */}
-        <header className="lg:hidden flex flex-col gap-10 pt-16 pb-4">
-          <ProfileHeader showBio={false} />
-          <SocialLinks />
-          <DownloadCV />
+        <header className="lg:hidden flex flex-col gap-8 pt-16">
+          <ProfileHeader />
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-5">
+            <DownloadCV />
+            <SocialLinks />
+          </div>
         </header>
 
         <About id="sobre-mí" />
         <Experience id="experiencia" items={experience} />
-        <Projects id="proyectos" items={projects} />
+        <Projects id="proyectos" items={projects} archive={archivedProjects} />
         <Skills id="skills" items={skills} />
+        <Contact id="contacto" />
       </main>
 
     </div>

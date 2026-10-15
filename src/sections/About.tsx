@@ -1,27 +1,34 @@
-import { proseParagraphClass } from "@/sections/cardLayout";
+import Section from "@/components/common/Section";
 
 type Props = {
-    id?: string;
+    id: string;
 };
 
 export default function About({ id }: Props) {
     return (
-        <section id={id} className="scroll-mt-24 min-h-dvh flex flex-col justify-center py-16">
-            <p className={proseParagraphClass}>
-                Soy desarrollador Full-stack especializado en la creación de aplicaciones web
-                utilizando React, Next.js, Node.js y TypeScript. Disfruto construir productos
-                que resuelvan problemas reales y aporten valor a negocios y usuarios.
-            </p>
-            <p className={proseParagraphClass}>
-                He trabajado en proyectos relacionados con e-commerce, gestión de datos y
-                automatización de procesos, participando tanto en el desarrollo de interfaces
-                modernas como en la implementación de lógica de negocio y APIs.
-            </p>
-            <p className={proseParagraphClass}>
-                Utilizo herramientas modernas como Cursor y MCP para acelerar el desarrollo,
-                validar especificaciones y mejorar la productividad, manteniendo siempre el
-                foco en la calidad, mantenibilidad y escalabilidad del software.
-            </p>
-        </section>
+        <Section id={id} title="Sobre mí">
+            <div className="flex flex-col gap-5 text-lg leading-[1.75]">
+                <p>
+                    Soy desarrollador Full-stack con <span className="metric">más de 3 años</span>{" "}
+                    construyendo aplicaciones web y móviles para pymes y e-commerce con React,
+                    Next.js, Node.js y TypeScript. Me enfoco en modelar bien la lógica de negocio y
+                    en llevar productos completos desde la especificación hasta producción.
+                </p>
+                <p>
+                    Hoy desarrollo el ecosistema digital de una heladería artesanal: una{" "}
+                    <span className="text-(--color-slate-lighter)">app móvil</span> que calcula
+                    costos, márgenes e inventario y funciona sin conexión, y la{" "}
+                    <span className="text-(--color-slate-lighter)">tienda online</span> donde los
+                    clientes arman y envían sus pedidos. Antes trabajé como freelance creando
+                    tiendas, APIs y paneles administrativos a medida para pymes.
+                </p>
+                <p>
+                    Organizo el código en capas, valido los datos con Zod y escribo pruebas
+                    automatizadas para que el software sea fácil de mantener. Uso herramientas como
+                    Cursor y MCP para acelerar el desarrollo. Soy estudiante de Ingeniería en
+                    Informática y me estoy formando intensivamente en inglés.
+                </p>
+            </div>
+        </Section>
     );
 }

@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Adrian Enis — Full-stack Developer",
   description:
-    "Full-stack Developer especializado en React, Next.js y arquitecturas AI-First.",
+    "Full-stack Developer con React, Next.js, Node.js y TypeScript. Aplicaciones web y móviles para pymes y e-commerce.",
 };
 
 export default function RootLayout({

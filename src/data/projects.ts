@@ -1,40 +1,60 @@
+export type ProjectVisual = "costs" | "store";
+
 export type Project = {
   title: string;
   desc: string;
   chips: string[];
-  emoji: string;
+  visual: ProjectVisual;
+  status?: { label: string; tone: "wip" | "neutral" };
+  url?: string;
+};
+
+export type ArchivedProject = {
+  title: string;
+  chips: string[];
   url: string;
 };
 
 export async function getProjects(): Promise<Project[]> {
   return [
     {
-      emoji: "🎠",
-      title: "Design Slider — Carrusel Interactivo",
-      desc: "Carrusel de imágenes con navegación por thumbnails y flechas. HTML, CSS y JavaScript vanilla con diseño responsivo.",
-      chips: ["HTML", "CSS", "JavaScript"],
-      url: "https://inquisitive-sprite-a6ef8a.netlify.app/",
+      visual: "costs",
+      title: "App de Costos y Rentabilidad",
+      desc: "App móvil que calcula costos por lote, márgenes e inventario perpetuo con costo promedio ponderado. Funciona offline con SQLite y migraciones versionadas, y recibe actualizaciones OTA con EAS Update.",
+      chips: ["React Native", "Expo", "TypeScript", "SQLite", "Zod"],
+      status: { label: "App privada", tone: "neutral" },
     },
     {
-      emoji: "⚡",
-      title: "React App — Landing Page",
-      desc: "Aplicación React con Bootstrap y tipografía personalizada. Interfaz moderna y responsive.",
-      chips: ["React", "Vite", "Bootstrap"],
-      url: "https://melodic-tiramisu-841958.netlify.app/",
+      visual: "store",
+      title: "Tienda Web · Heladería Dibiluc",
+      desc: "Tienda online de pedidos para una heladería artesanal. Carrito, checkout integrado con WhatsApp y precios históricos por pedido en PostgreSQL (Supabase), sobre un backend en capas con Express.",
+      chips: ["React", "TypeScript", "Vite", "Express", "PostgreSQL", "Supabase"],
+      status: { label: "En desarrollo", tone: "wip" },
     },
+  ];
+}
+
+export async function getArchivedProjects(): Promise<ArchivedProject[]> {
+  return [
     {
-      emoji: "📊",
       title: "Expense Planner",
-      desc: "Planificador de gastos personal. Aplicación para registrar, categorizar y visualizar gastos con Tailwind CSS.",
       chips: ["React", "Tailwind CSS", "Vite"],
       url: "https://radiant-pavlova-b62f1f.netlify.app/",
     },
     {
-      emoji: "🧩",
-      title: "Tricki — App Web",
-      desc: "Aplicación web desarrollada con React y Vite. Interfaz dinámica y optimizada para rendimiento.",
+      title: "Tricki",
       chips: ["React", "Vite", "JavaScript"],
       url: "https://tricki.netlify.app/",
+    },
+    {
+      title: "Landing Page",
+      chips: ["React", "Vite", "Bootstrap"],
+      url: "https://melodic-tiramisu-841958.netlify.app/",
+    },
+    {
+      title: "Design Slider",
+      chips: ["HTML", "CSS", "JavaScript"],
+      url: "https://inquisitive-sprite-a6ef8a.netlify.app/",
     },
   ];
 }
